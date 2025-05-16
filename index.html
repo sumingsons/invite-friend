@@ -99,12 +99,43 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
     }
 
     .message-icon svg {
       width: 24px;
       height: 24px;
       fill: black;
+    }
+
+    /* Модальное окно */
+    #modal {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 25%;
+      background: #1A1A1A;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.4);
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      flex-direction: column;
+    }
+
+    #modal button {
+      padding: 12px 20px;
+      font-size: 16px;
+      background-color: #FFD600;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -116,7 +147,8 @@
   <div class="earnings">50 000₽</div>
   <div class="subtitle">Можете заработать</div>
 
-  <!-- Карточки контактов -->
+  <!-- Карточки -->
+  <!-- Пример: -->
   <div class="card">
     <div class="user-info">
       <img src="https://i.imgur.com/8Km9tLL.png" alt="Аватар" class="avatar">
@@ -130,102 +162,37 @@
     </div>
   </div>
 
-  <!-- Дополнительные карточки -->
-  <div class="card">
-    <div class="user-info">
-      <img src="https://i.pravatar.cc/48?img=2" class="avatar">
-      <div class="user-text">
-        <div class="name">Лена Бухгалтер</div>
-        <div class="policy"><span class="highlight">12.07</span> заканчивается полис</div>
-      </div>
-    </div>
-    <div class="message-icon">
-      <svg viewBox="0 0 24 24"><path d="M4 4h16v12H5.17L4 17.17V4zm0-2a2 2 0 0 0-2 2v20l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4z"/></svg>
-    </div>
+  <!-- Остальные карточки, как в твоём коде -->
+  <!-- Просто вставь их сюда — они останутся без изменений -->
+
+  <!-- Модальное окно -->
+  <div id="modal">
+    <button onclick="copyLink()">Скопировать ссылку</button>
   </div>
-  <div class="card">
-    <div class="user-info">
-      <img src="https://i.pravatar.cc/48?img=3" class="avatar">
-      <div class="user-text">
-        <div class="name">Игорь Такси</div>
-        <div class="policy"><span class="highlight">04.08</span> заканчивается полис</div>
-      </div>
-    </div>
-    <div class="message-icon">
-      <svg viewBox="0 0 24 24"><path d="M4 4h16v12H5.17L4 17.17V4zm0-2a2 2 0 0 0-2 2v20l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4z"/></svg>
-    </div>
-  </div>
-  <div class="card">
-    <div class="user-info">
-      <img src="https://i.pravatar.cc/48?img=4" class="avatar">
-      <div class="user-text">
-        <div class="name">Настя Кошки</div>
-        <div class="policy"><span class="highlight">18.05</span> заканчивается полис</div>
-      </div>
-    </div>
-    <div class="message-icon">
-      <svg viewBox="0 0 24 24"><path d="M4 4h16v12H5.17L4 17.17V4zm0-2a2 2 0 0 0-2 2v20l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4z"/></svg>
-    </div>
-  </div>
-  <div class="card">
-    <div class="user-info">
-      <img src="https://i.pravatar.cc/48?img=5" class="avatar">
-      <div class="user-text">
-        <div class="name">Кирилл Гантели</div>
-        <div class="policy"><span class="highlight">30.06</span> заканчивается полис</div>
-      </div>
-    </div>
-    <div class="message-icon">
-      <svg viewBox="0 0 24 24"><path d="M4 4h16v12H5.17L4 17.17V4zm0-2a2 2 0 0 0-2 2v20l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4z"/></svg>
-    </div>
-  </div>
-  <div class="card">
-    <div class="user-info">
-      <img src="https://i.pravatar.cc/48?img=6" class="avatar">
-      <div class="user-text">
-        <div class="name">Женя Стартап</div>
-        <div class="policy"><span class="highlight">02.09</span> заканчивается полис</div>
-      </div>
-    </div>
-    <div class="message-icon">
-      <svg viewBox="0 0 24 24"><path d="M4 4h16v12H5.17L4 17.17V4zm0-2a2 2 0 0 0-2 2v20l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4z"/></svg>
-    </div>
-  </div>
-  <div class="card">
-    <div class="user-info">
-      <img src="https://i.pravatar.cc/48?img=7" class="avatar">
-      <div class="user-text">
-        <div class="name">Таня Соседка</div>
-        <div class="policy"><span class="highlight">10.07</span> заканчивается полис</div>
-      </div>
-    </div>
-    <div class="message-icon">
-      <svg viewBox="0 0 24 24"><path d="M4 4h16v12H5.17L4 17.17V4zm0-2a2 2 0 0 0-2 2v20l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4z"/></svg>
-    </div>
-  </div>
-  <div class="card">
-    <div class="user-info">
-      <img src="https://i.pravatar.cc/48?img=8" class="avatar">
-      <div class="user-text">
-        <div class="name">Дима Ремонт</div>
-        <div class="policy"><span class="highlight">23.06</span> заканчивается полис</div>
-      </div>
-    </div>
-    <div class="message-icon">
-      <svg viewBox="0 0 24 24"><path d="M4 4h16v12H5.17L4 17.17V4zm0-2a2 2 0 0 0-2 2v20l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4z"/></svg>
-    </div>
-  </div>
-  <div class="card">
-    <div class="user-info">
-      <img src="https://i.pravatar.cc/48?img=9" class="avatar">
-      <div class="user-text">
-        <div class="name">Саша Велики</div>
-        <div class="policy"><span class="highlight">14.08</span> заканчивается полис</div>
-      </div>
-    </div>
-    <div class="message-icon">
-      <svg viewBox="0 0 24 24"><path d="M4 4h16v12H5.17L4 17.17V4zm0-2a2 2 0 0 0-2 2v20l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4z"/></svg>
-    </div>
-  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const messageIcons = document.querySelectorAll('.message-icon');
+
+    messageIcons.forEach(icon => {
+      icon.addEventListener('click', () => {
+        modal.style.display = 'flex';
+      });
+    });
+
+    function copyLink() {
+      navigator.clipboard.writeText("https://youtu.be/dQw4w9WgXcQ").then(() => {
+        alert("Ссылка скопирована!");
+        modal.style.display = 'none';
+      });
+    }
+
+    // Закрытие модалки при клике вне кнопки (если хочешь)
+    window.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
