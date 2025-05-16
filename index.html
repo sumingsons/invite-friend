@@ -5,47 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Приведи друга — Т-Страхование</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
+      background-color: #f9f9f9;
+      color: #000;
     }
 
     .container {
       max-width: 480px;
       margin: 0 auto;
-      padding: 20px;
-      background-color: white;
+      padding: 24px 16px 80px;
+      background-color: #fff;
+      min-height: 100vh;
     }
 
     .reward-box {
-      background-color: #fef6e0;
-      padding: 20px;
-      border-radius: 16px;
-      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff7c5, #fff2a8);
+      border-radius: 20px;
+      padding: 24px;
       text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 24px;
     }
 
     .reward-box h1 {
-      font-size: 32px;
+      font-size: 36px;
       margin: 0;
+      color: #000;
     }
 
     .reward-box p {
-      color: #666;
-      margin: 8px 0 0;
+      margin-top: 8px;
+      color: #555;
+      font-size: 16px;
     }
 
     .card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       background-color: #fff;
       border-radius: 16px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      display: flex;
-      align-items: center;
       padding: 12px 16px;
       margin-bottom: 12px;
-      justify-content: space-between;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
 
     .card-info {
@@ -55,14 +64,15 @@
     }
 
     .avatar {
-      width: 36px;
-      height: 36px;
-      background-color: #eee;
+      width: 40px;
+      height: 40px;
+      background-color: #e0e0e0;
       border-radius: 50%;
     }
 
     .name {
-      font-weight: bold;
+      font-size: 16px;
+      font-weight: 600;
     }
 
     .policy-expiry {
@@ -71,10 +81,11 @@
     }
 
     .message-button {
+      font-size: 22px;
       background: none;
       border: none;
       cursor: pointer;
-      font-size: 20px;
+      padding: 4px;
     }
 
     .modal {
@@ -82,12 +93,13 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: white;
+      background: #fff;
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
-      padding: 20px;
+      padding: 24px 16px;
       display: none;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+      z-index: 1000;
     }
 
     .modal.show {
@@ -95,13 +107,14 @@
     }
 
     .copy-button {
+      width: 100%;
       background-color: #ffdd2d;
       border: none;
-      padding: 12px;
-      border-radius: 8px;
+      padding: 14px;
+      border-radius: 12px;
       font-weight: bold;
-      width: 100%;
-      margin-top: 10px;
+      font-size: 16px;
+      margin-top: 16px;
       cursor: pointer;
     }
   </style>
